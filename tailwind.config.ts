@@ -12,6 +12,13 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-bahnschrift)", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        brand: "#FF008A",
+        accent: "#0082D8",
+      },
+      screens: {
+        xs: "390px",
+      },
     },
   },
   plugins: [],
