@@ -16,7 +16,7 @@ export default function Button({
     <Link href={url}>
       <button
         className={cn(
-          "group relative w-full rounded border-2 border-white px-8 py-4 text-lg font-semibold uppercase",
+          "group relative w-full rounded border-2 border-white px-8 py-4 text-lg font-semibold uppercase transition-colors duration-100",
           {
             "bg-brand hover:text-brand focus-visible:text-brand text-white hover:bg-white focus-visible:bg-white":
               theme === "brand" && type === "fill",
