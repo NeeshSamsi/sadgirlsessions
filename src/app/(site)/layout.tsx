@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Sad Girl Sessions",
   description:
     "Sad Girl Sessions is all about embracing our feelings and finding strength in vulnerability. It’s more than an event series, it’s a community and content platform.",
+  metadataBase: new URL("https://sadgirlsessions.com"),
   openGraph: {
     images: ["/logo.png"],
   },
