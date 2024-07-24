@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="mx-auto grid max-w-screen-xs">
+    <main className="mx-auto grid max-w-screen-xs px-8">
       <Image
         src={logo}
         alt="Sad Girl Sessions Logo"
