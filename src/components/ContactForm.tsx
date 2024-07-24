@@ -39,12 +39,13 @@ export default function ContactForm({
 
     try {
       const res = await fetch(
-        "https://formsubmit.co/ajax/74d4f2cdd0a759d55ffd8b3f2c022442",
+        `https://submit-form.com/${process.env.FORM_ID}`,
         {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
         },
       )
