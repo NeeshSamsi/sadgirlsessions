@@ -17,6 +17,7 @@ export default config({
   singletons: {
     settings: {
       label: "Site Settings",
+      path: "src/data/settings",
       schema: {
         url: fields.url({
           label: "Site URL",
@@ -47,6 +48,7 @@ export default config({
 
     contactForm: {
       label: "Contact Form Settings",
+      path: "src/data/contact-form",
       schema: {
         heading: fields.text({
           label: "Heading",
@@ -99,6 +101,7 @@ export default config({
 
     buttons: {
       label: "Interactive Button Links",
+      path: "src/data/buttons",
       schema: {
         buttons: fields.array(
           fields.object({
