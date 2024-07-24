@@ -1,9 +1,12 @@
+import { type Metadata } from "next"
+
+import Link from "next/link"
 import Image from "next/image"
 import logo from "@/../public/logo.png"
+
 import Button from "@/components/Button"
 import Underline from "@/components/Underline"
 import Instagram from "@/components/Instagram"
-import Link from "next/link"
 import ContactForm from "@/components/ContactForm"
 
 const links = [
@@ -32,6 +35,14 @@ const links = [
     link: "https://www.netflix.com/browse",
   },
 ]
+
+export const metadata: Metadata = {
+  title: "Sad Girl Sessions",
+  description: "",
+  openGraph: {
+    images: ["/logo.png"],
+  },
+}
 
 export default function Home() {
   return (
