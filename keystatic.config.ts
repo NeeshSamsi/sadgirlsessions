@@ -96,6 +96,16 @@ export default config({
             "The text for the submit button when sending the message.",
           validation: { isRequired: true },
         }),
+        successMessage: fields.text({
+          label: "Success Message",
+          description: "The success message when the form is submitted.",
+          validation: { isRequired: true },
+        }),
+        errorMessage: fields.text({
+          label: "Error Message",
+          description: "The error message when the form fails to submit.",
+          validation: { isRequired: true },
+        }),
       },
     },
 
