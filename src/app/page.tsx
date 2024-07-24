@@ -6,6 +6,33 @@ import Instagram from "@/components/Instagram"
 import Link from "next/link"
 import ContactForm from "@/components/ContactForm"
 
+const links = [
+  {
+    text: "click me if you want to text your ex",
+    link: "https://www.youtube.com/watch?v=SeHx6AbR74o",
+  },
+  {
+    text: "click me if they’re ghosting you",
+    link: "https://apps.apple.com/us/app/hinge-dating-app-match-meet/id595287172",
+  },
+  {
+    text: "click me if you’re angry",
+    link: "https://www.youtube.com/watch?v=XIeCMhNWFQQ&t=37s",
+  },
+  {
+    text: "click me if you’re feeling sad",
+    link: "https://open.spotify.com/playlist/4oWetqiykLLBqkH3DvYaZu?si=f29c6ba5ef1d4f2f",
+  },
+  {
+    text: "click this if you need to find yourself",
+    link: "https://www.skyscanner.net/flights/flights-to-region/44292244/cheap-flights-to-bali.html?associateID=SEM_GGF_19370_00074&&utm_source=google&utm_medium=cpc&utm_campaign=UK-Flights-Search-EN-Pmax&utm_term=&associateID=PMX_FLI_19465_00000&campaign_id=20887622368&adgroupid=&keyword_id=&gad_source=1&gclid=Cj0KCQjwkdO0BhDxARIsANkNcrdQR5ijBUIQ3QqvH6EIpCmBbnYLG9rDEEuvvga2D10U8jJT7n4NpcwaAs_oEALw_wcB&gclsrc=aw.ds",
+  },
+  {
+    text: "click this if you’re feeling spicy",
+    link: "https://www.netflix.com/browse",
+  },
+]
+
 export default function Home() {
   return (
     <main className="mx-auto grid max-w-screen-xs">
@@ -17,15 +44,15 @@ export default function Home() {
       <h1 className="sr-only">Sad Girl Sessions</h1>
 
       <div className="mt-8 grid gap-8">
-        {[null, null, null, null, null, null, null, null, null].map((_, i) => (
-          <Link key={i} href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+        {links.map(({ text, link }, i) => (
+          <Link key={i} href={link}>
             <Button
               theme={{
                 color: i % 4 === 0 || i % 4 === 1 ? "accent" : "brand",
                 type: i % 2 === 0 ? "text" : "fill",
               }}
             >
-              Click me if you want to text your ex
+              {text}
             </Button>
           </Link>
         ))}
