@@ -1,20 +1,27 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
+import reader from "@/lib/keystatic"
 
 const bahnschrift = localFont({
   src: "../../../public/fonts/Bahnschrift.ttf",
   variable: "--font-bahnschrift",
 })
 
-export const metadata: Metadata = {
-  title: "Sad Girl Sessions",
-  description:
-    "Sad Girl Sessions is all about embracing our feelings and finding strength in vulnerability. It’s more than an event series, it’s a community and content platform.",
-  metadataBase: new URL("https://sadgirlsessions.com"),
-  openGraph: {
-    images: ["/logo.png"],
-  },
+export const generateMetadata: () => Promise<Metadata> = async () => {
+  const settings = await reader.singletons.settings.read()
+  if (!settings) throw new Error("Keystatic Content Not Found - settings")
+
+  return {
+    title: "Sad Girl Sessions",
+    description:
+      "Sad Girl Sessions is all about embracing our feelings and finding strength in vulnerability. It’s more than an event series, it’s a community and content platform.",
+    metadataBase: new URL(settings.url),
+
+    openGraph: {
+      images: ["/logo.png"],
+    },
+  }
 }
 
 export default function SiteLayout({
