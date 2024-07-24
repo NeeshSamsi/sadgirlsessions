@@ -3,7 +3,29 @@
 import { useState, type FormEvent } from "react"
 import Button from "./Button"
 
-export default function ContactForm() {
+export default function ContactForm({
+  nameLabel,
+  namePlaceholder,
+  emailLabel,
+  emailPlaceholder,
+  messageLabel,
+  messagePlaceholder,
+  submitText,
+  submitLoadingText,
+  successMessage,
+  errorMessage,
+}: {
+  readonly nameLabel: string
+  readonly namePlaceholder: string
+  readonly emailLabel: string
+  readonly emailPlaceholder: string
+  readonly messageLabel: string
+  readonly messagePlaceholder: string
+  readonly submitText: string
+  readonly submitLoadingText: string
+  readonly successMessage: string
+  readonly errorMessage: string
+}) {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
 
@@ -28,15 +50,15 @@ export default function ContactForm() {
       )
 
       if (res.status === 200) {
-        setMessage("Your message has been sent!")
+        setMessage(successMessage)
         setTimeout(() => setMessage(null), 8000)
       } else {
-        setMessage("Something went wrong. Please try again later.")
+        setMessage(errorMessage)
         setTimeout(() => setMessage(null), 8000)
       }
     } catch (error) {
       console.error(error)
-      setMessage("Something went wrong. Please try again later.")
+      setMessage(errorMessage)
       setTimeout(() => setMessage(null), 8000)
     }
 
@@ -49,33 +71,33 @@ export default function ContactForm() {
     <form className="mt-8 grid gap-8 text-xl" onSubmit={handleSubmit}>
       <div className="grid gap-4">
         <div className="grid gap-2">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">{nameLabel}</label>
           <input
             type="text"
             name="name"
             id="name"
-            placeholder="Name"
+            placeholder={namePlaceholder}
             className="rounded border-2 border-white bg-black px-4 py-3 text-base text-white placeholder-neutral-400 focus:border-brand focus:ring-0"
           />
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{emailLabel}</label>
           <input
             type="email"
             name="email"
             id="email"
-            placeholder="Email"
+            placeholder={emailPlaceholder}
             className="rounded border-2 border-white bg-black px-4 py-3 text-base text-white placeholder-neutral-400 focus:border-brand focus:ring-0"
           />
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">{messageLabel}</label>
           <textarea
             name="message"
             id="message"
-            placeholder="Message"
+            placeholder={messagePlaceholder}
             rows={5}
             className="rounded border-2 border-white bg-black px-4 py-3 text-base text-white placeholder-neutral-400 focus:border-brand focus:ring-0"
           />
@@ -89,7 +111,7 @@ export default function ContactForm() {
         type="submit"
         disabled={loading}
       >
-        {loading ? "Sending..." : "Submit"}
+        {loading ? submitLoadingText : submitText}
       </Button>
     </form>
   )
